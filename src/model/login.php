@@ -1,5 +1,7 @@
 <?php
 session_start();
+
+include('../../index.php');
 include('connection.php');
 include_once('../../view/login-view.php');
 
@@ -29,3 +31,5 @@ if ($row == 1) {
     header('Location: ../../view/login-view.php');
     exit();
 }
+
+?>

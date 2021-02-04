@@ -1,5 +1,5 @@
 <?php 
-session_start($_SESSION['addNote']);
+session_start();
 
 include('connection.php');
 include_once('../../view/panel-view.php');
@@ -13,7 +13,7 @@ $query = "INSERT INTO notes (idUsuario, titleNote, descriptionNote, textNote)  V
 $res = mysqli_query($conexao, $query);
 $row = mysqli_num_rows($res);
 
-if ($row == 1) {
+if ($row == true) {
     header("Location: ../../view/panel-view.php");
     exit();
 } else {

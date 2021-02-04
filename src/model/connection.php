@@ -1,4 +1,7 @@
 <?php
+
+
+
 define('HOST', 'localhost');
 define('USUARIO', 'root');
 define('SENHA', 'Gu31000My*');

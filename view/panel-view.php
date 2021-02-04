@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-include("../src/model/autenticate_login.php");
 include("../src/model/connection.php");
 
 
@@ -87,7 +86,7 @@ $res = mysqli_query($conexao, $consult);
                     <div id="text-note"><?php echo $note["textNote"]; ?></div>
 
                     <div id="container-button-delet-note">
-                        <a href="javascript: window.location.href='../src/model/delete.php'<?php $_SESSION['id_note'] = $note['idNotes']; ?>" id="content-button-delet">
+                        <a href="javascript: window.location.href='../src/model/delete.php/<?php echo $note['idNotes'] ?>'<?php $_SESSION['id_note'] = $note['idNotes']; ?>" id="content-button-delet">
                             <i class="fa fa-trash-o"></i>
                         </a>
                     </div>
