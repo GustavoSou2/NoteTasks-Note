@@ -1,20 +1,14 @@
 <?php 
-
+session_start();
 include_once('connection.php');
-include_once('../../view/panel-view.php');
 
-$id_note = intval($_SESSION['id_note']);
+$id_notes = intval($_GET['note_id']);
 
-$sql_code = "DELETE FROM notes WHERE idNotes = {$id_note}";
+$sql_code = "DELETE FROM notes WHERE notes.idNotes = {$id_notes}";
 $result = mysqli_query($conexao, $sql_code);
 
 if($result) {
-    echo "
-    <script type='javascript'>
-
-        window.location.href='../../view/panel-view.php';
-    </script>
-    ";
+    header("Location: ../../view/panel-view.php");
     exit();
 
 }

@@ -1,9 +1,9 @@
 <?php
 session_start();
 
-include('../../index.php');
 include('connection.php');
 include_once('../../view/login-view.php');
+
 
 if (empty($_POST['email']) || empty($_POST['senha'])) {
     header('Location: ../../view/login-view.php');
@@ -24,9 +24,11 @@ if ($row == 1) {
     $_SESSION['usuário'] = true;
     $_SESSION['name'] = $array_user['nomeUsuario'];
     $_SESSION['id_user'] = $array_user['idUsuario'];
+    
     header("Location: ../../view/panel-view.php");
     exit();
 } else {
+    include_once('./src/model/autenticate_login.php');
     $_SESSION['nao_autenticado'] = true;
     header('Location: ../../view/login-view.php');
     exit();

@@ -2,6 +2,9 @@
 session_start();
 
 include("../src/model/connection.php");
+@include_once('./src/model/delete.php');
+@include_once('./src/model/add-note.php');
+@include('./src/model/search.php');
 
 
 $consult = "SELECT notes.idNotes,  notes.titleNote, notes.descriptionNote, notes.textNote FROM notes inner join usuario on notes.idusuario = usuario.idusuario WHERE usuario.idUsuario =  {$_SESSION['id_user']}  ";
@@ -38,12 +41,15 @@ $res = mysqli_query($conexao, $consult);
     <main>
         <div id="container-elements-btn">
             <div id="content-elements">
-                <div id="container-search-element">
-                    <label for="search" id="search-field">
-                        <i class="fa fa-search"></i>
-                        <input type="search" name="search" placeholder="pesquise..." id="search">
-                    </label>
-                </div>
+                    <form action="../src/model/search.php" method="POST" id="container-search-element">
+                        <label for="search" id="search-field">
+                            <input type="search" name="search-field" placeholder="pesquise..." id="search">
+                            <div class="container-fa-search">
+                                <input type="submit" id="search-button" style="opacity: 0;">
+                                <label for="search-button" class="fa fa-search" style="cursor: pointer;"></label>
+                            </div>
+                        </label>
+                    </form>
                 <div class="container-button-add-note">
                     <div class="content-add-note">
                         <span id="comment-button-add"></i> add anotação</span>
@@ -53,21 +59,21 @@ $res = mysqli_query($conexao, $consult);
         </div>
         <!-- form - new note -->
         <div class="container-form-new-note hidden">
-            <div class="content-form-new-note">
-                <h2>Nova anotação</h2>
-                <form action="../src/model/add-note.php" method="POST" id="form-new-note">
-                    <input type="text" name="title" maxlength="20" id="title" placeholder="Título">
+            <h2>Nova anotação</h2>
 
-                    <input type="text" name="sub-title" maxlength="45" id="sub-title" placeholder="Descrição">
+            <form action="../src/model/add-note.php" method="POST" id="form-new-note">
 
-                    <textarea name="note" id="note" placeholder="Anotação" maxlength="300"></textarea>
+                <input type="text" name="title" maxlength="20" id="title" placeholder="Título">
 
-                    <div id="container-button-form">
-                        <input type="submit" value="Enviar <?php $_SESSION['addNote'] = true?>">
-                        <input type="button" value="Cancelar" id="button-cancel">
-                    </div>
-                </form>
-            </div>
+                <input type="text" name="sub-title" maxlength="45" id="sub-title" placeholder="Descrição">
+
+                <textarea name="note" id="note" placeholder="Anotação" maxlength="300"></textarea>
+
+                <div id="container-button-form">
+                    <input type="submit" value="Enviar <?php $_SESSION['addNote'] = true ?>">
+                    <input type="button" value="Cancelar" id="button-cancel">
+                </div>
+            </form>
         </div>
 
         <!-- conteúdo -->
@@ -77,21 +83,49 @@ $res = mysqli_query($conexao, $consult);
             ?>
                 <span class="mensage-null"><?php echo "Você não tem nenhuma anotação"; ?></span>
             <?php } ?>
+            <!-- No search -->
+            <?php
 
-            <?php while ($note = mysqli_fetch_assoc($res)) { ?>
-                <div id="content-note">
-                    
-                    <div id="title-note"><?php echo $note["titleNote"]; ?></div>
-                    <div id="description-note"><?php echo $note["descriptionNote"]; ?></div>
-                    <div id="text-note"><?php echo $note["textNote"]; ?></div>
+            $status_search = $_SESSION['search'];
+            $row_search = $_SESSION['resquest'];
 
-                    <div id="container-button-delet-note">
-                        <a href="javascript: window.location.href='../src/model/delete.php/<?php echo $note['idNotes'] ?>'<?php $_SESSION['id_note'] = $note['idNotes']; ?>" id="content-button-delet">
-                            <i class="fa fa-trash-o"></i>
-                        </a>
+
+            if ($status_search == false) {
+                while ($note = mysqli_fetch_assoc($res)) { ?>
+                    <div id="content-note">
+
+                        <div id="title-note"><?php echo $note["titleNote"]; ?></div>
+                        <div id="description-note"><?php echo $note["descriptionNote"]; ?></div>
+                        <div id="text-note"><?php echo $note["textNote"]; ?></div>
+
+                        <div id="container-button-delet-note">
+                            <a href="javascript: window.location.href='../src/model/search.php?note_id=<?php echo $note['idNotes'] ?>'" id="content-button-delet">
+                                <i class="fa fa-trash-o"></i>
+                            </a>
+                        </div>
                     </div>
-                </div>
-            <?php } ?>
+                <?php }
+                
+            } ?>
+            <?php 
+            if ($status_search == true) {
+                while ($notesearch = mysqli_fetch_assoc($row_search)) { ?>
+                    <div id="content-note">
+
+                        <div id="title-note"><?php echo $notesearch[1]; ?></div>
+                        <div id="description-note"><?php echo $notesearch[2]; ?></div>
+                        <div id="text-note"><?php echo $notesearch[3]; ?></div>
+
+                        <div id="container-button-delet-note">
+                            <a href="javascript: window.location.href='../src/model/search.php?note_id=<?php echo $notesearch['idNotes'] ?>'" id="content-button-delet">
+                                <i class="fa fa-trash-o"></i>
+                            </a>
+                        </div>
+                    </div>
+            <?php }
+
+            } ?>
+
         </section>
     </main>
 

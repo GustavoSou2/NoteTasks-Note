@@ -1,1 +1,1 @@
-SELECT notes.idNotes,  notes.titleNote, notes.descriptionNote, notes.textNote FROM notes inner join usuario on usuario.idUsuario = notes.idNotes WHERE usuario.idUsuario =  3  
+SELECT notes.idNotes, notes.titleNote,notes.descriptionNote, notes.textNote FROM notes INNER JOIN usuario ON notes.idUsuario = usuario.idUsuario WHERE usuario.idUsuario = 3 and notes.titleNote LIKE '%{$field_search}'
