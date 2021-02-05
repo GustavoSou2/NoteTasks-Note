@@ -1,0 +1,73 @@
+
+/* header */
+header {
+    width: 100%;
+    height: calc(10vh + 7px);
+    display: flex;
+    background-color: #459ff3;
+}
+
+/* logo */
+#container-logo {
+    width: auto;
+    min-height: fit-content;
+    height: calc(10vh + 7px);
+    float: left;
+}
+#container-logo h1:first-child {
+    font-weight: 500;
+    font-size: 1.7rem;
+    margin: 0 10vw 0;
+    line-height: calc(10vh + 7px);
+    color: #efefef;
+}
+#container-button-user {
+    width: 30%;
+    height: calc(10vh + 7px);
+    display: flex;
+    position: absolute;
+    right: 0;
+    top: 0;
+    justify-content: center;
+    align-items: center;
+}
+.sub-container-button-user {
+    width: auto;
+    min-width: fit-content;
+    height: calc(10vh + 7);
+    display: flex;
+    align-items: center;
+}
+#user-name {
+    color: #efefef;
+    font-size: 1.1rem;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    margin: 0 20px 0 0;
+}
+.fa-user-circle-o {
+    margin: 0 5px 0;
+    font-size: 1.7rem;
+}
+#log-out-user {
+    width: auto;
+    height: auto;
+}
+#log-out-user a:first-child {
+    padding: 7px 27px;
+    border-radius: 9px;
+    display: flex;
+
+    color: #efefef;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(2, 69, 163, 70%);
+
+    color: #efefef;
+}
+#log-out-user a:first-child:hover {
+    text-decoration: none;
+    transition: .4s ease;
+    background-color: #ff4343;
+}

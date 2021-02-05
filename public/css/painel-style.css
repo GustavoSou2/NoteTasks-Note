@@ -12,78 +12,6 @@ body {
 
 }
 
-/* header */
-header {
-    width: 100%;
-    height: calc(10vh + 7px);
-    display: flex;
-    background-color: #459ff3;
-}
-
-/* logo */
-#container-logo {
-    width: auto;
-    min-height: fit-content;
-    height: calc(10vh + 7px);
-    float: left;
-}
-#container-logo h1:first-child {
-    font-weight: 500;
-    font-size: 1.7rem;
-    margin: 0 10vw 0;
-    line-height: calc(10vh + 7px);
-    color: #efefef;
-}
-#container-button-user {
-    width: 30%;
-    height: calc(10vh + 7px);
-    display: flex;
-    position: absolute;
-    right: 0;
-    top: 0;
-    justify-content: center;
-    align-items: center;
-}
-.sub-container-button-user {
-    width: auto;
-    min-width: fit-content;
-    height: calc(10vh + 7);
-    display: flex;
-    align-items: center;
-}
-#user-name {
-    color: #efefef;
-    font-size: 1.1rem;
-    font-weight: 400;
-    display: flex;
-    align-items: center;
-    margin: 0 20px 0 0;
-}
-.fa-user-circle-o {
-    margin: 0 5px 0;
-    font-size: 1.7rem;
-}
-#log-out-user {
-    width: auto;
-    height: auto;
-}
-#log-out-user a:first-child {
-    padding: 7px 27px;
-    border-radius: 9px;
-    display: flex;
-
-    color: #efefef;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(2, 69, 163, 70%);
-
-    color: #efefef;
-}
-#log-out-user a:first-child:hover {
-    text-decoration: none;
-    transition: .4s ease;
-    background-color: #ff4343;
-}
 /* Main */
 main {
     width: 100%;
@@ -324,7 +252,7 @@ input[type="button"] {
     color: rgba(51, 51, 51, 65%);
 }
 #title-note {
-    width: 15%;
+    width: 20%;
     height: 100%;
     display: flex;
     align-items: center;
@@ -333,7 +261,7 @@ input[type="button"] {
     color: #459ff3;
 }
 #description-note {
-    width: 30%;
+    width: 60%;
     height: 100%;
     display: flex;
     align-items: center;
@@ -372,4 +300,21 @@ input[type="button"] {
 }
 .fa-trash-o {
     font-size: 1.2rem;
+}
+#content-button-see-more {
+    width: auto;
+    height: auto;
+    padding: 7px 12px;
+    background-color: #459ff3;
+    border-radius: 9px;
+    display: block;
+    margin: 0 15px 0;
+    align-items: center;
+    justify-content: center;
+    color: #efefef;
+}
+#content-button-see-more:hover {
+    transition: .4s ease;
+    text-decoration: none;
+    background-color: #0245a3;
 }

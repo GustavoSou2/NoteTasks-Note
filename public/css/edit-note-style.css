@@ -1,0 +1,115 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-shadow: 0 0 0 0;
+    border: 0 none;
+    outline: 0;
+}
+body {
+    font-family: 'Roboto', sans-serif;
+    font-weight: normal;
+    text-decoration: none;
+
+}
+
+/* Main */
+#container-see-more{
+    width: 100%;
+    height: calc(100vh - 10vh - 7px);;
+
+    padding: 0 0 30px;   
+}
+/* Note */
+#content-note-plus {
+    width: 90%;
+    height: auto;
+    display: block;
+    margin: 0 auto 0;
+    padding: 20px 0 30px;
+}
+
+#title-note-more {
+    width: 90%;
+    height: 55px;
+    background-color: #efefef;
+    color: #459ff3;
+    font-weight: 500;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    margin: 0 auto 10px;
+}
+#description-note-more {
+    width: 90%;
+    height: 35px;
+    background-color: #efefef;
+    display: flex;
+    align-items: center;
+    margin: 0 auto 10px;
+    padding: 0 16px;
+    color: rgba(51, 51, 51, 70%);
+    font-weight: 300;
+}
+#text-note-more {
+    width: 90%;
+    height: auto;
+    min-height: 40vh;
+    background-color: #efefef;
+    display: flex;
+    margin: 0 auto 10px;
+    padding: 10px 16px;
+    color: #333333;
+}
+#container-button-close {
+    width: 90%;
+    height: 45px;
+    display: block;
+    margin: 0 auto 20px;
+}
+#content-butto-back-page {
+    width: fit-content;
+    height: auto;
+    padding: 10px 25px;
+    background-color: #459ff3;
+    border-radius: 9px;
+    align-items: center;
+    justify-content: center;
+    color: #efefef;
+}
+#content-butto-back-page:hover {
+    transition: .4s ease;
+    text-decoration: none;
+    background-color: #0245a3;
+}
+#mensage-error-see-more {
+    width: fit-content;
+    height: auto;
+    display: block;
+    margin: auto;
+    color: #333333;
+}
+
+#content-button-upload-note {
+    width: fit-content;
+    height: auto;
+    padding: 10px 25px;
+    background-color: #ff4343;
+    border-radius: 9px;
+    align-items: center;
+    justify-content: center;
+    color: #efefef;
+}
+.fa-edit {
+    font-size: 1.2rem;
+}
+#content-button-upload-note:hover {
+    transition: .4s ease;
+    text-decoration: none;
+    background-color: #d63939;
+}
+input[type="text"] {
+    width: auto;
+    height: 35px;
+    background-color: transparent;
+}

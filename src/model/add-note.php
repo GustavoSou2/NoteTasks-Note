@@ -5,7 +5,7 @@ include('connection.php');
 
 
 
-$title = trim(utf8_encode($_POST["title"]));
+$title = trim($_POST["title"]);
 $description = trim(utf8_encode($_POST["sub-title"]));
 $text = trim(utf8_encode($_POST["note"]));
 $idUser = $_SESSION['id_user'];
