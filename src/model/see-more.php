@@ -27,7 +27,19 @@ $result = mysqli_query($conexao, $sql_code);
 </head>
 
 <body>
-    <?php include_once('../../view/top-bar-user-view.php'); ?>
+    <header>
+        <div id="container-logo">
+            <h1>NoteTasks</h1>
+        </div>
+        <div id="container-button-user">
+            <div class="sub-container-button-user">
+                <span id="user-name"><?php echo $_SESSION['name']; ?> <i class="fa fa-user-circle-o"></i></span>
+                <div id="log-out-user">
+                    <a href="./log-out.php">Sair</a>
+                </div>
+            </div>
+        </div>
+    </header>
 
     <main id="container-see-more">
 
@@ -39,8 +51,8 @@ $result = mysqli_query($conexao, $sql_code);
                 <div id="text-note-more"><?php echo $row_note["textNote"] ?></div>
 
                 <div id="container-button-close">
-                    <a href="javascript: window.location.href='../../view/panel-view.php'" id="content-butto-back-page">Voltar</a>
-                    <a href="javascript: window.location.href='panel-edit-note.php?note_id=<?php echo $row_note['idNotes'] ?>'" id="content-button-upload-note"> <i class="fa fa-edit"></i> Editar</a>
+                    <a href="javascript: window.location.href='./panel-edit-note.php?note_id=<?php echo $row_note['idNotes'] ?>'" id="content-button-upload-note"> <i class="fa fa-edit"></i> Editar</a>
+                    <a href="javascript: window.location.href='../../view/panel-view.php'" id="content-butto-back-page"><i class="fa fa-log-out"></i> Voltar</a>
                 </div>
             </div>
         <?php

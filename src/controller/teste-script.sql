@@ -1,1 +1,1 @@
-SELECT notes.idNotes, notes.titleNote,notes.descriptionNote, notes.textNote FROM notes INNER JOIN usuario ON notes.idUsuario = usuario.idUsuario WHERE usuario.idUsuario = 3 and notes.titleNote LIKE '%{$field_search}'
+UPDATE notes SET notes.titleNote = 'Testando', notes.descriptionNote = '123', notes.textNote = '123' WHERE notes.idNotes = 119

@@ -11,42 +11,16 @@ session_start();
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Crimson+Pro">
+    <link rel="stylesheet" href="../public/css/menu-top-bar-style.css">
     <link rel="stylesheet" href="../public/css/create-account-style.css">
     <title>NoteTasks | Cadastrar-se</title>
 </head>
 
 <body>
     <header>
-        <!-- Menu -->
-        <div id="container-icon-menu">
-            <div id="content-icon-menu">
-                <i class="fa fa-angle-double-right"></i>
-            </div>
-        </div>
-        <div class="container-menu">
-            <i class="fa fa-angle-double-left"></i>
-            <div id="content-menu">
-                <nav class="nav-menu-content">
-                    <ul class="menu">
-                        <span>User</span>
-                        <li class="item-menu">
-                            <a href="#">Todos</a>
-                        </li>
-                        <li class="item-menu">
-                            <a href="#">Lista de tarefas</a>
-                        </li>
-                        <li class="item-menu">
-                            <a href="#">Anotações</a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-
-        <!-- Logo -->
-        <div id="container-logo">
-            <h1>NoteTasks</h1>
-        </div>
+    <div id="container-logo">
+        <h1>NoteTasks</h1>
+    </div>
     </header>
     <main>
         <section id="container-section-form-login">

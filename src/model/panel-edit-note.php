@@ -1,7 +1,9 @@
 <?php
 session_start();
 
-include_once('connection.php');
+@include_once('connection.php');
+@include_once('edit-note.php');
+
 
 $id_notes = intval($_GET['note_id']);
 
@@ -32,17 +34,20 @@ $result = mysqli_query($conexao, $sql_code);
     <main id="container-see-more">
 
         <?php if ($row_note = mysqli_fetch_assoc($result)) { ?>
-            <div id="content-note-plus">
+            <form action="" method="POST"  id="content-note-plus">
 
-                <div id="title-note-more"><input type="text" name="title-edit" placeholder="<?php echo $row_note['titleNote'] ?>"></div>
-                <div id="description-note-more"><input type="text" name="description-edit" placeholder="<?php echo $row_note['descriptionNote'] ?>"></div>
-                <div id="text-note-more"><input type="text" name="text-edit" placeholder="<?php echo $row_note['textNote'] ?>"></div>
+                <div id="title-note-more"><input type="text" name="title-edit" maxlength="20" placeholder="<?php echo $row_note['titleNote'] ?>"></div>
+                <div id="description-note-more"><input type="text" name="description-edit" maxlength="45" placeholder="<?php echo $row_note['descriptionNote'] ?>"></div>
+                <div id="text-note-more"><textarea type="text" name="text-edit" maxlength="300" placeholder="<?php echo $row_note['textNote'] ?>"></textarea></div>
 
                 <div id="container-button-close">
-                    <a href="javascript: window.location.href='../../view/panel-view.php'" id="content-button-upload-note">Atualizar</a>
+                    <input type="submit" id="content-button-upload-note" value="Atualizar">
+                    <?php 
+                    $_SESSION['id_notes'] = $row_note['idNotes']; 
+                    ?>
                     <a href="javascript: window.location.href='./see-more.php?note_id=<?php echo $row_note['idNotes'] ?>'" id="content-butto-back-page">Voltar</a>
                 </div>
-            </div>
+        </form>
         <?php
         } else {
         ?>
@@ -50,6 +55,7 @@ $result = mysqli_query($conexao, $sql_code);
                 Não foi possível abrir essa nota
             </span>
         <?php } ?>
+
 
     </main>
 </body>
